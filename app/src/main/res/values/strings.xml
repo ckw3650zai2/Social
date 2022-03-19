@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Social</string>
+    <string-array name="university">
+        <item>UTAR</item>
+        <item>Taylor</item>
+        <item>UCSI</item>
+        <item>UM</item>
+        <item>UTM</item>
+    </string-array>
 </resources>

@@ -1,18 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Hello World!" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="634dp"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:orientation="vertical">
+
+        <View style="@style/Divider" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FDFDFD"
+                android:drawableTop="@drawable/ic_action_name"
+                android:text="Home"
+                android:textColor="#151414"
+                android:textColorHint="#252323"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/timetable_button"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FDFDFD"
+                android:drawableTop="@drawable/ic_action_timetable"
+                android:onClick="timetable"
+                android:text="TimeTable"
+                android:textColor="#151414"
+                android:textColorHint="#252323"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/notes_button"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FDFDFD"
+                android:drawableTop="@drawable/ic_action_notes"
+                android:onClick="notes"
+                android:text="Notes"
+                android:textColor="#151414"
+                android:textColorHint="#252323"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editUser_button"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FDFDFD"
+                android:drawableTop="@drawable/ic_action_edit"
+                android:onClick="edit"
+                android:text="User"
+                android:textColor="#151414"
+                android:textColorHint="#252323"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
