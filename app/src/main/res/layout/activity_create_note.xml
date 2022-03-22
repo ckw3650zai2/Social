@@ -60,8 +60,9 @@
                 android:includeFontPadding="false"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/colorDefaultNoteColor"
                 android:textSize="20sp"
+                android:padding="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/imageBack"
                 tools:layout_editor_absoluteX="16dp" />
 
@@ -138,7 +139,8 @@
                 android:inputType="textMultiLine"
                 android:minHeight="100dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:textColorHint="@color/colorDefaultNoteColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageNote"
                 tools:layout_editor_absoluteX="16dp" />
