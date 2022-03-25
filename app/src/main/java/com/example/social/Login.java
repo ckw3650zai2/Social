@@ -5,17 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
 
 public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -25,6 +30,21 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setupHyperlink();
+
+    }
+    private void setupHyperlink() {
+        TextView linkTextView = (TextView) findViewById(R.id.forgot);
+        //linkTextView.setTextColor(Color.BLUE);
+        linkTextView.setTextColor(Color.BLUE);
+        linkTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        linkTextView.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent i = new Intent(Login.this,ForgotPassword.class);
+                startActivity(i);
+
+            }
+        });
     }
 
     public void login(View v){
@@ -62,7 +82,7 @@ public class Login extends AppCompatActivity {
                                 startActivity(i);
 
                             } else {
-                                Toast.makeText(Login.this, "Error!"+task.getException().getMessage(),
+                                Toast.makeText(Login.this, "Error! "+task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                                 Log.d("TAG", "createUserWithEmail:failure");
                             }
