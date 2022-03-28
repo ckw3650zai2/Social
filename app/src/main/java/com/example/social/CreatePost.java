@@ -69,7 +69,10 @@ public class CreatePost extends AppCompatActivity {
     Uri image_uri = null;
 
     //user information
-    String name, email,currentUid,image;
+    String name;
+    String email;
+    String currentUid;
+    Uri profilepic = null;
 
     //Progress Bar
     ProgressDialog progressDialog;
@@ -155,7 +158,7 @@ public class CreatePost extends AppCompatActivity {
 
         if(!uri.equals("noImage")){
             //posting with image
-            StorageReference postRef = FirebaseStorage.getInstance().getReference().child(filepath+".jpg");
+            StorageReference postRef = storageReference.child("Posts/").child(filepath);
             postRef.putFile(Uri.parse(uri)).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -164,12 +167,14 @@ public class CreatePost extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 HashMap<Object,String> postMap = new HashMap<>();
-                                postMap.put("image",uri.toString());
-                                postMap.put("user",currentUid);
-                                postMap.put("description",description);
-                                postMap.put("title",title);
-                                postMap.put("postedTime",timestamp);
                                 postMap.put("postId",timestamp);
+                                postMap.put("user",currentUid);
+                                //postMap.put("school",);
+                                postMap.put("title",title);
+                                postMap.put("description",description);
+                                postMap.put("image",uri.toString());
+                                postMap.put("postedTime",timestamp);
+
 
                                 firestore.collection("Posts").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
@@ -207,6 +212,9 @@ public class CreatePost extends AppCompatActivity {
             HashMap<Object,String> postMap = new HashMap<>();
             postMap.put("image","noImage");
             postMap.put("user",currentUid);
+//            postMap.put("email",email);
+//            postMap.put("profilepic",profilepic.toString());
+//            postMap.put("name",name);
             postMap.put("description",description);
             postMap.put("title",title);
             postMap.put("postedTime",timestamp);
@@ -334,6 +342,7 @@ public class CreatePost extends AppCompatActivity {
             email = user.getEmail();
             currentUid = user.getUid();
             name = user.getDisplayName();
+            profilepic = user.getPhotoUrl();
         } else {
 
             startActivity(new Intent(this, MainActivity.class));
