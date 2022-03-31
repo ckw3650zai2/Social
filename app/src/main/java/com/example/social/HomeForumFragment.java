@@ -174,7 +174,7 @@ public class HomeForumFragment extends Fragment {
 
     private void loadPosts() {
 
-        query = firestore.collection("Posts").orderBy("postedTime",Query.Direction.DESCENDING);
+        query = firestore.collection("Posts").orderBy("postedTime",Query.Direction.ASCENDING);
 
         query.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
