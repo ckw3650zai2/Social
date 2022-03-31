@@ -182,7 +182,8 @@ public class HomeForumFragment extends Fragment {
                 postModelList.clear();
                 for(DocumentChange doc: value.getDocumentChanges()){
                     if(doc.getType()== DocumentChange.Type.ADDED){
-                        PostModel post = doc.getDocument().toObject(PostModel.class);
+                        String postId = doc.getDocument().getId();
+                        PostModel post = doc.getDocument().toObject(PostModel.class).withId(postId);
                         postModelList.add(post);
 
                         //adapter
@@ -208,7 +209,9 @@ public class HomeForumFragment extends Fragment {
 
                 for(DocumentChange doc: value.getDocumentChanges()){
                     if(doc.getType()== DocumentChange.Type.ADDED){
-                        PostModel post = doc.getDocument().toObject(PostModel.class);
+
+                        String postId = doc.getDocument().getId();
+                        PostModel post = doc.getDocument().toObject(PostModel.class).withId(postId);
 
                         if(post.getTitle().toLowerCase().contains(searchQuery)||post.getDescription().toLowerCase().contains((searchQuery))){
                             postModelList.add(post);

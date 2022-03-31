@@ -106,6 +106,7 @@ public class CreatePost extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
 
+
         //initialize component
         etTitle = findViewById(R.id.et_pTitle);
         etDescription = findViewById(R.id.et_pDesc);

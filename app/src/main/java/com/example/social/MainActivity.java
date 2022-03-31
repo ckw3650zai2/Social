@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         tx.setText(id);
 
+
+        // start initial screen Forum
         HomeForumFragment homeForumFragment = new HomeForumFragment();
         FragmentTransaction forumFT = getSupportFragmentManager().beginTransaction();
         forumFT.add(R.id.mainLayout,homeForumFragment,"");
