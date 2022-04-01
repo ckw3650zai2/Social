@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_project/Social/app/src/main/res/drawable-anydpi/ic_action_edit.xml" value="0.16354166666666667" />
+        <entry key="..\:/Android_project/Social/app/src/main/res/drawable-anydpi/ic_action_timetable.xml" value="0.16354166666666667" />
         <entry key="..\:/Android_project/Social/app/src/main/res/drawable-mdpi/centre_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_edit_profile.xml" value="0.2" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_forgot_password.xml" value="0.140625" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_login.xml" value="0.152" />
-        <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_main.xml" value="0.10400000000000001" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_register.xml" value="0.2" />
       </map>
     </option>
