@@ -15,14 +15,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="634dp"
         android:orientation="vertical"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
+        android:layout_height="82dp"
         android:orientation="vertical">
 
         <View style="@style/Divider" />
@@ -30,8 +28,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
+            android:layout_height="108dp"
             android:orientation="horizontal">
 
             <Button
