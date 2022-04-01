@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="95dp"
         android:orientation="vertical">
 
     </LinearLayout>
@@ -20,6 +20,11 @@
         android:layout_height="182dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,12 +43,17 @@
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email:" />
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:ems="10"
                 android:hint="xxx@gmail.com"
                 android:inputType="textEmailAddress" />
@@ -52,15 +62,28 @@
                 android:id="@+id/passwordText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password:" />
+                android:fontFamily="sans-serif-black"
+                android:text="Password:"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="password"
-                android:inputType="textPassword" />
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:id="@+id/forgot"
@@ -88,14 +111,17 @@
 
             <View style="@style/Divider" />
 
-
             <Button
-                android:id="@+id/back"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#FFFFFF"
                 android:onClick="register_page"
-                android:text="Register?" />
+                android:text="Register?"
+                android:textColor="#000000" />
+
+
         </LinearLayout>
 
     </LinearLayout>

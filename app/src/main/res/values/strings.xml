@@ -6,5 +6,22 @@
         <item>UCSI</item>
         <item>UM</item>
         <item>UTM</item>
+        <item>UiTM</item>
+        <item>USM</item>
+        <item>UKM</item>
+        <item>MMU</item>
+        <item>APU</item>
+        <item>UTP</item>
+        <item>IMU</item>
+        <item>UNISEL</item>
+        <item>MUST</item>
+        <item>UniKL</item>
+        <item>INTI</item>
+        <item>Sunway</item>
+        <item>HELP</item>
+        <item>SEGi</item>
+        <item>KDU</item>
+        <item>MAHSA</item>
+
     </string-array>
 </resources>
