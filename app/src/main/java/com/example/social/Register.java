@@ -89,6 +89,8 @@ public class Register extends AppCompatActivity {
                                     user.put("username", username_text);
                                     user.put("email", email_text);
                                     user.put("university", selected_uni);
+                                    user.put("imageName", "");
+                                    user.put("imageUrl", "");
                                     String uid = task.getResult().getUser().getUid();
                                     Log.d("uid", uid);
 
