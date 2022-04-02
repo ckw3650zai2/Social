@@ -14,13 +14,15 @@
         android:text="Hello World!" />
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="634dp"
+        android:layout_height="616dp"
         android:orientation="vertical"></LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="82dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
         android:orientation="vertical">
 
         <View style="@style/Divider" />
@@ -28,7 +30,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="108dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
             <Button
