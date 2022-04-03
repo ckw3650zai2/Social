@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="2dp"
+    android:layout_margin="1dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <de.hdodenhof.circleimageview.CircleImageView
+             android:id="@+id/cdPic"
+             android:layout_width="40dp"
+             android:layout_height="40dp"
+             android:layout_marginEnd="5dp"
+             android:layout_marginRight="5dp"
+             android:src="@drawable/default_pic"/>
+
+         <TextView
+             android:id="@+id/cdName"
+             android:layout_toRightOf="@id/cdPic"
+             android:text="User A"
+             android:textColor="@color/black"
+             android:textSize="15sp"
+             android:textStyle="bold"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+         <TextView
+             android:id="@+id/cdComment"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/cdName"
+             android:layout_toEndOf="@id/cdPic"
+             android:layout_toRightOf="@id/cdPic"
+             android:text="Some comment here..."/>
+
+         <TextView
+             android:id="@+id/cdTime"
+             android:layout_toRightOf="@id/cdPic"
+             android:layout_below="@id/cdComment"
+             android:layout_toEndOf="@id/cdPic"
+             android:text="01/01/2022"
+             android:textSize="10sp"
+             android:textStyle="italic"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+     </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
