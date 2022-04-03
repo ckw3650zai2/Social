@@ -56,7 +56,7 @@ public class ForgotPassword extends AppCompatActivity {
                                 startActivity(i);
                             }
                             else{
-                                Toast.makeText(ForgotPassword.this, "Error!"+task.getException().getMessage(),
+                                Toast.makeText(ForgotPassword.this, "Error! "+task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
 

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF"
+    android:background="@drawable/centre_background"
     android:orientation="vertical"
     tools:context=".EditProfile">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,8 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:fontFamily="monospace"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
             android:text="Edit Profile"
             android:textColor="#000000"
@@ -133,6 +135,7 @@
                 android:id="@+id/uni_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:popupBackground="@drawable/centre_background"
                 android:spinnerMode="dropdown" />
 
             <Button
@@ -142,7 +145,8 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="15dp"
                 android:onClick="onEdit"
-                android:text="Edit" />
+                android:text="Edit"
+                app:cornerRadius="@dimen/_104sdp" />
         </LinearLayout>
 
         <LinearLayout

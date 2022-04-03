@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/centre_background"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -24,12 +25,12 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo2" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="417dp"
+        android:layout_height="479dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -78,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/centre_background"
                     android:ems="10"
                     android:inputType="textPassword" />
 
@@ -96,30 +97,34 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="142dp"
+            android:layout_height="174dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/send"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="134dp"
+                android:layout_height="64dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="login"
-                android:text="Login" />
+
+                android:text="Login"
+                app:cornerRadius="@dimen/_104sdp" />
 
 
             <View style="@style/Divider" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="145dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="#FFFFFF"
                 android:onClick="register_page"
                 android:text="Register?"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                app:cornerRadius="@dimen/_104sdp" />
 
 
         </LinearLayout>
