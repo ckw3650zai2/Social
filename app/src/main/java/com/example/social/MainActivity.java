@@ -11,8 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.social.activities.CreateNoteActivity;
+import com.example.social.activities.NotesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_addPost:{
                 Intent intent = new Intent(this,CreatePost.class);
                 startActivity(intent);
-                
+
             }
         }
 
@@ -96,8 +99,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void notes (View v){
-
+    public void notes(View v) {
+        Button notes_button = findViewById(R.id.notes_button);
+        notes_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(getApplicationContext(), NotesActivity.class)
+                );
+            }
+        });
     }
 
     public void edit (View v){
