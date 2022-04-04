@@ -4,10 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -191,11 +195,38 @@ public class EditProfile extends AppCompatActivity {
 
     public void onUpload (View v){
 
+        if(ContextCompat.checkSelfPermission(
+                getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE
+        ) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(
+                    EditProfile.this,
+                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
+                    10
+            );
+        }else {
+            uploadProfileImage();
+        }
+
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == 10 && grantResults.length > 0){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                uploadProfileImage();
+            } else {
+                Toast.makeText(this, "Not Permission!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void uploadProfileImage(){
         Intent galleryIntent = new Intent();
-        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setAction(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent,2);
-
     }
 
     @Override
@@ -203,6 +234,13 @@ public class EditProfile extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         imageView = findViewById(R.id.profileImage);
         if(requestCode ==2 && resultCode == RESULT_OK && data!=null){
+            Context context = getApplicationContext();
+            CharSequence text = "Uploading your Profile Image!";
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast_upload = Toast.makeText(context, text, duration);
+            toast_upload.show();
+
 
             mAuth = FirebaseAuth.getInstance();
             String id = mAuth.getCurrentUser().getUid();
@@ -234,6 +272,7 @@ public class EditProfile extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception e) {
                                     Toast.makeText(EditProfile.this, "Error! "+e.getMessage(),
                                             Toast.LENGTH_SHORT).show();
+
                                 }
                             });
                         }
@@ -268,8 +307,11 @@ public class EditProfile extends AppCompatActivity {
                             db.collection("users").document(id)
                                     .update(user_url);
 
+                            toast_upload.cancel();
+
                             Toast.makeText(EditProfile.this, "Upload Successfully ",
                                     Toast.LENGTH_SHORT).show();
+
 
                         }
                     });
@@ -277,6 +319,7 @@ public class EditProfile extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    toast_upload.cancel();
                     Toast.makeText(EditProfile.this, "Error! "+e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
@@ -326,6 +369,7 @@ public class EditProfile extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
+
                 Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
 
