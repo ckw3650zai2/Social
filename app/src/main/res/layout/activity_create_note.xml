@@ -51,7 +51,7 @@
                 android:id="@+id/inputNoteTitle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:background="@null"
                 android:fontFamily="sans-serif-medium"
                 android:hint="@string/note_title"

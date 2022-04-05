@@ -13,11 +13,11 @@
     <color name="colorQuickActionsBackground">#1F1F1F</color>
     <color name="colorIcons">#A4A4A4</color>
     <color name="colorDefaultNoteColor">#7B7B7B</color>
-    <color name="colorMiscellaneousBackground">#1F1F1F</color>
+    <color name="colorMiscellaneousBackground">#FFFFFFFF</color>
     <color name="colorNoteColor2">#FDBE3B</color>
     <color name="colorNoteColor3">#FF4842</color>
     <color name="colorNoteColor4">#3A52FC</color>
-    <color name="colorNoteColor5">#000000</color>
+    <color name="colorNoteColor5">#6ae6dd</color>
     <color name="colorDelete">#FF4842</color>
     <color name="colorSearchBackground">#7B7B7B</color>
     <color name="colorPrimary">#292929</color>
