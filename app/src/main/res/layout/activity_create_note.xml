@@ -34,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/imageSave"
-                android:layout_width="28dp"
-                android:layout_height="32dp"
+                android:layout_width="31dp"
+                android:layout_height="34dp"
                 android:layout_marginEnd="12dp"
                 android:background="@drawable/background_done_button"
                 android:contentDescription="@string/app_name"
@@ -51,7 +51,7 @@
                 android:id="@+id/inputNoteTitle"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@null"
                 android:fontFamily="sans-serif-medium"
                 android:hint="@string/note_title"
@@ -60,9 +60,9 @@
                 android:includeFontPadding="false"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/colorDefaultNoteColor"
-                android:textSize="20sp"
-                android:padding="@dimen/_10sdp"
+                android:textColorHint="@color/black"
+                android:textSize="23sp"
+                android:padding="@dimen/_5sdp"
                 app:layout_constraintTop_toBottomOf="@id/imageBack"
                 tools:layout_editor_absoluteX="16dp" />
 
@@ -103,7 +103,7 @@
 
             <View
                 android:id="@+id/viewSubtitleIndicator"
-                android:layout_width="5dp"
+                android:layout_width="10dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
                 android:background="@drawable/background_subtitle_indicator"
