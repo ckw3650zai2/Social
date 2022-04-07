@@ -43,8 +43,10 @@ import java.util.Locale;
 import com.example.social.R;
 import com.example.social.database.AppDatabase;
 import com.example.social.entities.Note;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateNoteActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 
     private EditText inputNoteTitle, inputNoteSubtitle, inputNoteText;
     private TextView textDateTime;
@@ -58,11 +60,14 @@ public class CreateNoteActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
     private static final int REQUEST_CODE_SELECT_IMAGE = 2;
 
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
+        mAuth = FirebaseAuth.getInstance();
+        id = mAuth.getCurrentUser().getUid();
 
 
         ImageView imageBack = findViewById(R.id.imageBack);
@@ -119,6 +124,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setDateTime(textDateTime.getText().toString());
         note.setColor(selectedNoteColor);
         note.setImagePath(selectedImagePath);
+        note.setUserid(id);
 
         if (alreadyAvailableNote !=null){
             note.setId(alreadyAvailableNote.getId());
