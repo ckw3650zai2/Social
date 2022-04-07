@@ -28,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String id = mAuth.getCurrentUser().getUid();
 
-        TextView tx = (TextView) findViewById(R.id.show);
 
-        tx.setText(id);
+
 
 
         // start initial screen Forum
