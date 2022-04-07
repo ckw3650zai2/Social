@@ -31,6 +31,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -49,7 +50,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myholder>{
 
     Context context;
     List<PostModel> postModelList;
-    String currentUid;
+    String currentUid, username,school,profilePicURL;
     int count=0;
 
 
@@ -90,26 +91,50 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myholder>{
         String likes = postModelList.get(i).getPostLike();
         String comment = postModelList.get(i).getPostComment();
 
+
+
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(postedTime));
         String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
 
+        //retrieve user profile to the post
+        firestore.collection("users").document(user).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.exists()){
+
+                    //get username and profile pic url
+                    username = value.get("username").toString();
+                    school = value.get("university").toString();
+                    profilePicURL = value.get("imageUrl").toString();
+                    holder.post_username.setText(username);
+                    holder.post_school.setText(school);
+                    //set user profile pic
+                    try {
+
+                        Picasso.get().load(profilePicURL).placeholder(R.drawable.default_pic).resize(50,50).centerCrop().into(holder.post_profilepic);
+
+                    }catch (Exception e){
+
+                    }
+                }else{
+                    // cannot get username and profile pic url
+                }
+            }
+        });
+
         //set data
         holder.post_title.setText(title);
         holder.post_desc.setText(desc);
-        holder.post_username.setText(user);
+
+
         holder.post_time.setText(pTime);
         holder.post_likes.setText(likes+ " Likes");
         holder.post_comments.setText(comment+ " comments");
 
-        //set user profile pic
-        try {
-            String up = "";
-            Picasso.get().load(up).placeholder(R.drawable.default_pic).into(holder.post_profilepic);
 
-        }catch (Exception e){
 
-        }
+
         //set post image
         if(image.equals("noImage")){
             //hide imageview
@@ -117,7 +142,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myholder>{
 
         }else{
             try {
-                Picasso.get().load(image).into(holder.post_image);
+                Picasso.get().load(image).resize(1200,600).centerCrop().into(holder.post_image);
 
             }catch (Exception e){
 
@@ -251,6 +276,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myholder>{
             }
         });
     }
+
 
     private void shareImageText(String title, String desc, Bitmap bitmap) {
         String shareBody = title+"\n"+desc;

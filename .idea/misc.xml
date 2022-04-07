@@ -13,6 +13,8 @@
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_edit_profile.xml" value="0.264" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_launch_screen.xml" value="0.152" />
+        <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_edit_profile.xml" value="0.2" />
+        <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_forgot_password.xml" value="0.140625" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_login.xml" value="0.1609375" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Android_project/Social/app/src/main/res/layout/activity_notes.xml" value="0.12361111111111112" />
@@ -31,7 +33,7 @@
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/fragment_home_forum.xml" value="0.28958333333333336" />
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/menu_home.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/post_comment_details.xml" value="0.14010416666666667" />
-        <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/singlecomment.xml" value="0.28958333333333336" />
+        <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/singlecomment.xml" value="0.22" />
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/layout/singlepost.xml" value="0.2771317829457364" />
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/menu/menu.xml" value="0.5676691729323309" />
         <entry key="..\:/Users/ckw3650zai/AndroidStudioProjects/Social/app/src/main/res/menu/menu_main.xml" value="0.2359375" />
