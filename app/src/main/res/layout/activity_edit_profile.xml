@@ -38,7 +38,8 @@
                 android:layout_height="244dp"
                 android:adjustViewBounds="false"
 
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/default_pic" />
 
 
             <Button

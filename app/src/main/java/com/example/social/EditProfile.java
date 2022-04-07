@@ -129,13 +129,13 @@ public class EditProfile extends AppCompatActivity {
                             new DownloadImageFromInternet(image).execute(current_pofileImage);
 
                         }
-                        else{
-                            int imageResource = getResources().getIdentifier("@drawable/imageprofile", null, getPackageName());
-
-                            Drawable res = getResources().getDrawable(imageResource);
-
-                            image.setImageDrawable(res);
-                        }
+//                        else{
+//                            int imageResource = getResources().getIdentifier("@drawable/imageprofile", null, getPackageName());
+//
+//                            Drawable res = getResources().getDrawable(imageResource);
+//
+//                            image.setImageDrawable(res);
+//                        }
 
                         if (current_uni != null) {
                             int spinnerPosition = adapter.getPosition(current_uni);
