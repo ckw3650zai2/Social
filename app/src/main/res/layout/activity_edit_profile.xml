@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="398dp"
+        android:layout_height="357dp"
         android:orientation="vertical">
 
         <TextView
@@ -27,34 +27,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="298dp"
+            android:layout_height="262dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="264dp"
-                android:layout_height="268dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="250dp">
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="227dp"
+                android:layout_height="244dp"
+                android:adjustViewBounds="false"
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    app:cardCornerRadius="250dp">
-
-                    <ImageView
-                        android:id="@+id/profileImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:adjustViewBounds="true"
-
-                        android:scaleType="fitXY" />
-
-                </androidx.cardview.widget.CardView>
-
-            </androidx.cardview.widget.CardView>
+                android:scaleType="fitXY" />
 
 
             <Button
@@ -79,7 +63,7 @@
 
         <LinearLayout
             android:layout_width="316dp"
-            android:layout_height="309dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
 
