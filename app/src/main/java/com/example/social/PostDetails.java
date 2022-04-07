@@ -61,13 +61,13 @@ import java.util.Map;
 public class PostDetails extends AppCompatActivity {
 
     //Retrive post and user details
-    String currentuserid, uname, profilepic,email,postId,pLike,pTitle,pDesc,pImage,pTime;
+    String currentuserid, uname,users,cuser,cprofilePicURL,cschool, profilePicURL,email,postId,school,pTitle,pDesc,pImage,pTime;
 
 
     //View Image
 
     ImageView profilePic,postImage;
-    TextView username, postedTime, postTitle,postDesc,postLikes,postComment;
+    TextView username, postedTime, postTitle,postDesc,postLikes,postComment,postSchool;
     Button likeBtn,shareBtn;
     LinearLayout profileLayout;
 
@@ -89,7 +89,8 @@ public class PostDetails extends AppCompatActivity {
     List<CommentModel> commentModelList;
     CommentAdapter commentAdapter;
 
-
+    //for commentid pass
+    String CommentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +115,7 @@ public class PostDetails extends AppCompatActivity {
         profilePic = findViewById(R.id.post_profilepictv);
         postImage = findViewById(R.id.post_imagetv);
         username = findViewById(R.id.post_usernametv);
+        postSchool = findViewById(R.id.post_schooltv);
         postedTime = findViewById(R.id.post_timetv);
         postTitle = findViewById(R.id.post_titletv);
         postDesc = findViewById(R.id.post_desctv);
@@ -129,11 +131,11 @@ public class PostDetails extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_comments);
 
-
+        checkUserStatus();
         loadPostInfo();
+        checkLikeImage();
         loadCommentInfo();
 
-        checkUserStatus();
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,12 +175,12 @@ public class PostDetails extends AppCompatActivity {
 
                 for(DocumentChange doc: value.getDocumentChanges()) {
                     if (doc.getType() == DocumentChange.Type.ADDED) {
-
+                        CommentId = doc.getDocument().getId();
                         CommentModel comment = doc.getDocument().toObject(CommentModel.class);
 
                         commentModelList.add(comment);
                         //adapter
-                        commentAdapter = new CommentAdapter(getApplicationContext(),commentModelList);
+                        commentAdapter = new CommentAdapter(getApplicationContext(),commentModelList,postId,CommentId);
                         commentAdapter.notifyDataSetChanged();
                         //set adapter to recycleview
                         recyclerView.setAdapter(commentAdapter);
@@ -272,13 +274,15 @@ public class PostDetails extends AppCompatActivity {
             }
         });
 //
+        checkLikeImage();
+    }
+
+    private void checkLikeImage(){
         firestore.collection("Posts/"+postId+"/Likes").document(currentuserid).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error== null){
-
                     if(value.exists()){
-
                         //user liked this post
                         likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_liked,0,0,0);
                         likeBtn.setText("Liked");
@@ -286,14 +290,11 @@ public class PostDetails extends AppCompatActivity {
                         //user didnt like this psot
                         likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);
                         likeBtn.setText("Like");
-
-
                     }
                 }
             }
         });
     }
-
     private void postCommentInfo() {
 
         String timestamp = String.valueOf(System.currentTimeMillis());
@@ -307,11 +308,11 @@ public class PostDetails extends AppCompatActivity {
         if(!comment.isEmpty()){
 
             Map<String,Object> commentMap = new HashMap<>();
-            commentMap.put("cid","cid1");
+            commentMap.put("cid",timestamp);
             commentMap.put("comment",comment);
             commentMap.put("timestamp", timestamp);
             commentMap.put("uname",currentuserid);
-            commentMap.put("school","UTAR");
+            commentMap.put("school",cschool);
 
             firestore.collection("Posts/"+postId+"/Comments").add(commentMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                 @Override
@@ -377,8 +378,8 @@ public class PostDetails extends AppCompatActivity {
 
                 if (snapshot != null && snapshot.exists()) {
 
-                    Log.i("test",snapshot.getData().toString());
-                    Log.i("test",snapshot.get("description").toString());
+                    Log.i("test", snapshot.getData().toString());
+                    Log.i("test", snapshot.get("description").toString());
 //                    PostModel post = (PostModel) snapshot.getData();
 
                     pTitle = snapshot.get("title").toString();
@@ -387,15 +388,21 @@ public class PostDetails extends AppCompatActivity {
                     uname = snapshot.get("user").toString();
                     pTime = snapshot.get("postedTime").toString();
 
+                }
+
+                    //retrieve user profile to the post
+                    handleUserProfile(uname);
+
                     Calendar calendar = Calendar.getInstance(Locale.getDefault());
                     calendar.setTimeInMillis(Long.parseLong(pTime));
 
                     String Time = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
 
+
                     postTitle.setText(pTitle);
                     postDesc.setText(pDesc);
-                    username.setText(uname);
                     postedTime.setText(Time);
+
 
                     //For image handle visibility
 
@@ -411,17 +418,7 @@ public class PostDetails extends AppCompatActivity {
 
                         }
                     }
-                    //set user comment profile pic
-                    String up = "";
-                    try {
 
-                        Picasso.get().load(up).placeholder(R.drawable.default_pic).into(commentPic);
-
-                    }catch (Exception e){
-                        Picasso.get().load(R.drawable.default_pic).into(commentPic);
-                    }
-
-                }
             }
 
         });
@@ -484,6 +481,61 @@ public class PostDetails extends AppCompatActivity {
 
     }
 
+    private void handleUserProfile(String userid) {
+
+        firestore.collection("users").document(userid).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.exists()){
+                    //get username and profile pic url
+                    users = value.get("username").toString();
+                    school = value.get("university").toString();
+                    profilePicURL = value.get("imageUrl").toString();
+                    username.setText(users);
+                    postSchool.setText(school);
+
+                    //set user comment profile pic
+                    String up = "";
+                    try {
+
+                        Picasso.get().load(profilePicURL).placeholder(R.drawable.default_pic).resize(50,50).centerCrop().into(profilePic);
+
+                    }catch (Exception e){
+                        Picasso.get().load(R.drawable.default_pic).into(profilePic);
+                    }
+
+                }else{
+                    // cannot get username and profile pic url
+                }
+            }
+        });
+
+        firestore.collection("users").document(currentuserid).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.exists()){
+                    //get username and profile pic url
+                    cuser = value.get("username").toString();
+                    cschool = value.get("university").toString();
+                    cprofilePicURL = value.get("imageUrl").toString();
+
+
+                    //set user comment profile pic
+                    String up = "";
+                    try {
+                        Picasso.get().load(cprofilePicURL).placeholder(R.drawable.default_pic).resize(50,50).centerCrop().into(commentPic);
+
+                    }catch (Exception e){
+                        Picasso.get().load(R.drawable.default_pic).into(commentPic);
+                    }
+
+                }else{
+                    // cannot get username and profile pic url
+                }
+            }
+        });
+    }
+
     private void checkUserStatus() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -504,17 +556,5 @@ public class PostDetails extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main,menu);
-//        menu.findItem(R.id.action_addPost).setVisible(false);
-//        menu.findItem(R.id.action_search).setVisible(false);
-//
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        return super.onOptionsItemSelected(item);
-//    }
+
 }
