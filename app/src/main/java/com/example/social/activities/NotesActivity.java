@@ -24,9 +24,11 @@ import com.example.social.database.AppDatabase;
 import com.example.social.adapters.NotesAdapter;
 import com.example.social.entities.Note;
 import com.example.social.listeners.NotesListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class NotesActivity extends AppCompatActivity implements NotesListener {
+    private FirebaseAuth mAuth;
 
     public static final int REQUEST_CODE_ADD_NOTE = 1;
     public static final int REQUEST_CODE_UPDATE_NOTE = 2;
@@ -38,10 +40,14 @@ public class NotesActivity extends AppCompatActivity implements NotesListener {
 
     private int noteClickedPosition = -1;
 
+    String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+        mAuth = FirebaseAuth.getInstance();
+        id = mAuth.getCurrentUser().getUid();
         ImageView imageAddNoteMain = findViewById(R.id.imageAddNoteMain);
         imageAddNoteMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +108,7 @@ public class NotesActivity extends AppCompatActivity implements NotesListener {
             protected List<Note> doInBackground(Void... voids) {
                 return AppDatabase
                         .getNotesDatabase(getApplicationContext())
-                        .noteDao().getAllNotes();
+                        .noteDao().getAllNotes(id);
             }
 
             @Override

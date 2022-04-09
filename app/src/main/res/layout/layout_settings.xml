@@ -18,8 +18,8 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/miscellaneous"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13ssp"/>
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"/>
 
     <LinearLayout
         android:id="@+id/layoutNoteColor"
@@ -141,7 +141,7 @@
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
             android:text="@string/pick_color"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/_13ssp"/>
 
     </LinearLayout>
