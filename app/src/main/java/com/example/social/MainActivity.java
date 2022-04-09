@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.social.activities.CreateNoteActivity;
 import com.example.social.activities.NotesActivity;
+import com.example.social.activities.TimetableActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -95,7 +96,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void timetable (View v){
-
+        Button timetable_button = findViewById(R.id.timetable_button);
+        timetable_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(getApplicationContext(), TimetableActivity.class)
+                );
+            }
+        });
     }
 
     public void notes(View v) {

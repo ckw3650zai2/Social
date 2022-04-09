@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:icon="@drawable/ic_access_time_black_24dp"
+        android:key="time_settings"
+        android:summary="@string/time_settings_desc"
+        android:title="@string/time_settings" />
+
+    <ListPreference
+        android:defaultValue="switch"
+        android:entries="@array/theme_array"
+        android:entryValues="@array/theme_array_values"
+        android:icon="@drawable/ic_palette_black_24dp"
+        android:key="theme"
+        android:title="@string/choose_theme_setting" />
+
+    <Preference
+        android:key="cyanea"
+        android:title="Theming"
+        app:isPreferenceVisible="false" />
+</PreferenceScreen>

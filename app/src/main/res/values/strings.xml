@@ -35,4 +35,117 @@
     <string name="pick_color">Pick Color</string>
     <string name="delete_note">Delete note</string>
     <string name="are_you_sure_you_want_to_delete_this_note">Are You Sure You want to delete this Note?</string>
+
+    <!-- Timetable -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="settings">Settings</string>
+
+    <!-- Fragments strings -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="selected">Selected</string>
+
+    <!-- Main Activity strings -->
+    <string name="seven_days_of_the_week">7 days of the Week</string>
+    <string name="subject">Subject</string>
+    <string name="field_error">field cannot be empty!</string>
+    <string name="time_error">Time field cannot be empty!</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+
+    <string name="add_subject">Add subject</string>
+    <string name="edit_subject">Edit subject</string>
+    <string name="type">Type</string>
+    <string name="room">Room</string>
+    <string name="time">Time</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="time_to_dialog">To:</string>
+    <string name="time_from_dialog">From:</string>
+    <string name="subject_dialog">Subject:</string>
+    <string name="type_dialog">Type:</string>
+    <string name="room_dialog">Room:</string>
+    <string name="select_time">Select time</string>
+    <string name="select_color">Select color</string>
+    <string name="choose_time">Choose time</string>
+    <string name="choose_date">Choose date</string>
+    <string name="choose_color">Choose color</string>
+    <string name="select">Select</string>
+
+    <!-- Settings Activity strings -->
+    <string name="enable_seven_days_setting">Enable 7 days of the Week</string>
+
+    <string name="start_week_on_sunday">Start week on Sunday</string>
+    <string name="start_week_on_sunday_summary">Change Even/Odd weeks on Sunday and use Friday and Saturday as weekend.</string>
+
+    <string name="no">No</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="dont_show_again">Do not show again</string>
+    <string name="with_type">with</string>
+
+
+    <string name="select_start_time">Start</string>
+    <string name="select_end_time">End</string>
+    <string name="time_from">from</string>
+
+
+    <string name="colorPickerDialog_preset">Presets</string>
+    <string name="delete_content">Should %s be deleted?</string>
+    <string name="delete_week">the subject %s</string>
+
+    <string name="choose_theme_setting">Choose theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_black">Black</string>
+    <string name="theme_auto">Automatic</string>
+
+    <string name="summary_activity_title">Summary</string>
+    <string name="change_summary_library">Change presentation</string>
+    <string name="length_of_period">Duration of your subjects (set only on first app start)</string>
+    <string name="minutes">minutes</string>
+    <string name="lesson">lesson</string>
+    <string name="show_times_instead_of_lessons">Show exact times of subjects</string>
+    <string name="show_times_instead_of_lessons_desc">Show the exact times instead of the subject\'s number, e.g. 8:00 instead of 1</string>
+
+    <string-array name="timetable_header">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    <string name="time_settings">Time settings</string>
+    <string name="time_settings_desc">Settings about the start of your school and the length of your lessons.</string>
+    <string name="ok">OK</string>
+    <string name="first_start_setup">Some things have to be set at the beginning.</string>
+    <string name="start_of_term">Start of your term</string>
+    <string name="start_of_term_desc">With this date we calculate if today is an even or an odd week.
+        \nThe first week of your term is always an even week.
+        \nIf you want to switch the weeks manually, just change the week of your term start.</string>
+    <string name="enable_even_odd_weeks">Enable even/odd weeks</string>
+    <string name="even_week">Even week</string>
+    <string name="odd_week">Odd week</string>
+    <string name="intelligent_auto_fill">Automatically select start/end</string>
+    <string name="intelligent_auto_fill_desc">Automatically select the matching begin/end time to your inputs.</string>
+
+    <!-- Profiles -->
+    <string name="profiles_add">Add Profile\u2026</string>
+    <string name="profiles_delete_submit_heading">Are you sure?</string>
+    <string name="profiles_edit">Edit\u2026</string>
+    <string name="profiles_delete_message">Are you sure that you want to delete profile %s</string>
+    <string name="profiles">Profiles</string>
+    <string name="add_profile_button">Add profile</string>
+    <string name="add">Add</string>
+    <string name="profile_default_name">Default</string>
+    <string name="select_profile">Select profile</string>
 </resources>

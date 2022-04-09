@@ -18,6 +18,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Social" >
         <activity
+            android:name=".activities.TimetableActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".activities.TimetableActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.TimetableActivity" />
+        </activity>
+        <activity
+            android:name=".activities.SummaryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/summary_activity_title"
+            android:parentActivityName=".activities.TimetableActivity" />
+        <activity
+            android:name=".activities.TimeSettingsActivity"
+            android:label="@string/time_settings"
+            android:parentActivityName=".activities.SummaryActivity" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="@string/profiles" />
+        <activity
             android:name=".activities.CreateNoteActivity"
             android:exported="false" />
         <activity
