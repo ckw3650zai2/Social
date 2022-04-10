@@ -28,12 +28,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.social.activities.NotesActivity;
+import com.example.social.activities.TimetableActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -431,11 +434,27 @@ public class EditProfile extends AppCompatActivity {
     }
 
     public void timetable (View v){
-
+        Button timetable_button = findViewById(R.id.timetable_button);
+        timetable_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(getApplicationContext(), TimetableActivity.class)
+                );
+            }
+        });
     }
 
-    public void notes (View v){
-
+    public void notes(View v) {
+        Button notes_button = findViewById(R.id.notes_button);
+        notes_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(getApplicationContext(), NotesActivity.class)
+                );
+            }
+        });
     }
 
     public void home (View v){
