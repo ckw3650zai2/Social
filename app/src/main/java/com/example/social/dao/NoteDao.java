@@ -13,8 +13,8 @@ import com.example.social.entities.Note;
 @Dao
 public interface NoteDao {
 
-    @Query("SELECT * FROM notes ORDER BY id DESC")
-    List<Note> getAllNotes();
+    @Query("SELECT * FROM notes WHERE User_Id= :id")
+    List<Note> getAllNotes(String id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertNote(Note note);
