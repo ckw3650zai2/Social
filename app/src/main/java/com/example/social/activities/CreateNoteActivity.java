@@ -88,7 +88,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         ImageView imageSave = findViewById(R.id.imageSave);
         imageSave.setOnClickListener(view -> {saveNote(); });
 
-        selectedNoteColor = "#333333";
+        selectedNoteColor = "#FFBB86FC";
         selectedImagePath = "";
 
         if(getIntent().getBooleanExtra("isVieworUpdate", false)){
@@ -175,7 +175,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedNoteColor = "#333333";
+                selectedNoteColor = "#FFBB86FC";
                 imageColor1.setImageResource(R.drawable.ic_done);
                 imageColor2.setImageResource(0);
                 imageColor3.setImageResource(0);
