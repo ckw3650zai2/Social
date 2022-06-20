@@ -418,13 +418,8 @@ public class PostDetails extends AppCompatActivity {
 
                         }
                     }
-
             }
-
         });
-
-
-
 
         Query query2 = firestore.collection("Posts/"+postId+"/Likes");
         query2.addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -471,14 +466,9 @@ public class PostDetails extends AppCompatActivity {
                         } else {
                             postComment.setText("");
                         }
-
-
                     }
-
             }
         });
-
-
     }
 
     private void handleUserProfile(String userid) {
